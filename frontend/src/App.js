@@ -8,6 +8,9 @@ import memories from './images/memories.png';
 import useStyles from './styles';
 
 const App = () => {
+    // the useStyles hook uses the styles from 
+    // the corresponding makestyles hook from
+    // ./styles
     const classes = useStyles();
     const dispatch = useDispatch();
 
@@ -16,17 +19,33 @@ const App = () => {
     }, [dispatch])
     
     return (
+        // The container component centers content horizontally
+        // The container is bounded by the maxWidth prop value
         <Container maxWidth="lg">
+            {/* "Memories" Header */}
+            {/* AppBar displays is a component that is used to contain information
+                and actions that are related to the current screen(example: navigation)
+            */}
+            {/* position static sets the positioning to static which means put the element
+                into its normal position in the document flow (default)
+            */}
             <AppBar className={classes.appBar} position="static" color="inherit">
+                {/* A material UI component for styling text */}
                 <Typography className={classes.heading} variant="h2" align="center">Memories</Typography>
                 <img className={classes.image} src={memories} alt="memories" height="60" />
             </AppBar>
+            {/* a component that adds a grow animation to the child element/component */}
             <Grow in>
                 <Container>
+                    {/* creates a responsive layout grid that adapts to screensize and orientation */}
+                    {/* grids are in a 12-column grid layout */}
+                    {/* the number inside of size props states how many columns should be taken up */}
                     <Grid container justifyContent="space-between" alignItems="stretch" spacing={3}>
+                        {/* Posts section */}
                         <Grid item xs={12} sm ={7}>
                             <Posts />
                         </Grid>
+                        {/* Form section */}
                         <Grid item xs={12} sm ={4}>
                             <Form />
                         </Grid>

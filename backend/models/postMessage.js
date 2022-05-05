@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 
+// creates the schema for a post
 const postSchema = mongoose.Schema({
     title: String,
     message: String,
@@ -16,6 +17,7 @@ const postSchema = mongoose.Schema({
     }
 });
 
+// creates a model for the post schema named PostMessage
 const PostMessage = mongoose.model('PostMessage', postSchema);
 
 export default PostMessage;

@@ -13,6 +13,9 @@ const Form = () => {
         tags: '',
         selectedFile: ''
     });
+    // the useStyles hook uses the styles from 
+    // the corresponding makestyles hook from
+    // ./styles
     const classes = useStyles();
     const dispatch = useDispatch();
 

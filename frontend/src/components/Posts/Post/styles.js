@@ -1,5 +1,7 @@
 import { makeStyles } from '@material-ui/core/styles';
 
+// uses the makestyles hook to modify the styles
+// set by MUI
 export default makeStyles({
   media: {
     height: 0,
