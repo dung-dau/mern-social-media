@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Container, AppBar, Typography, Grow, Grid } from '@material-ui/core';
 import { useDispatch } from 'react-redux';
 import { getPosts } from './actions/posts';
@@ -13,10 +13,11 @@ const App = () => {
     // ./styles
     const classes = useStyles();
     const dispatch = useDispatch();
+    const [currentId, setCurrentId] = useState(null);
 
     useEffect(() => {
       dispatch(getPosts());
-    }, [dispatch])
+    }, [currentId, dispatch])
     
     return (
         // The container component centers content horizontally
@@ -43,11 +44,11 @@ const App = () => {
                     <Grid container justifyContent="space-between" alignItems="stretch" spacing={3}>
                         {/* Posts section */}
                         <Grid item xs={12} sm ={7}>
-                            <Posts />
+                            <Posts setCurrentId={setCurrentId} />
                         </Grid>
                         {/* Form section */}
                         <Grid item xs={12} sm ={4}>
-                            <Form />
+                            <Form currentId={currentId} setCurrentId={setCurrentId}/>
                         </Grid>
                     </Grid>
                 </Container>

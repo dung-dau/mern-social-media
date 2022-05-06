@@ -7,26 +7,34 @@ import moment from 'moment';
 
 import useStyles from './styles';
 
-function Post({ post }) {
+function Post({ post, setCurrentId }) {
     // the useStyles hook uses the styles from 
     // the corresponding makestyles hook from
     // ./styles
     const classes = useStyles();
     return (
         <Card className={classes.card}>
+            {/* header image */}
             <CardMedia component="div" className={classes.media} image={post.selectedFile} title={post.title}/>
+            {/* Name and timestamp */}
             <div className={classes.overlay}>
                 <Typography variant="h6">{post.creator}</Typography>
                 <Typography variant="body2">{moment(post.createdAt).fromNow()}</Typography>
             </div>
+            {/* ... button */}
             <div className={classes.overlay2}>
-                <Button style={{color: "white"}} size="small" onClick={() => {}}>
+                <Button style={{color: "white"}} 
+                        size="small" 
+                        onClick={() => setCurrentId(post._id)}
+                >
                     <MoreHorizIcon fontSize="medium" />
                 </Button>
             </div>
+            {/* bottom section of the post under the image */}
             <div className={classes.details}>
                 <Typography variant="body2" color="textSecondary">{post.tags.map((tag) => `#${tag} `)}</Typography>
             </div>
+            {/* title of the post */}
             <Typography className={classes.title} gutterBottom variant="h5">{post.title}</Typography>
             <CardContent>
                 <Typography variant="body2" color="textSecondary">{post.message}</Typography>
