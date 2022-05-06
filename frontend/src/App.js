@@ -41,7 +41,7 @@ const App = () => {
                     {/* creates a responsive layout grid that adapts to screensize and orientation */}
                     {/* grids are in a 12-column grid layout */}
                     {/* the number inside of size props states how many columns should be taken up */}
-                    <Grid container justifyContent="space-between" alignItems="stretch" spacing={3}>
+                    <Grid className={classes.mainContainer} container justifyContent="space-between" alignItems="stretch" spacing={3}>
                         {/* Posts section */}
                         <Grid item xs={12} sm ={7}>
                             <Posts setCurrentId={setCurrentId} />
